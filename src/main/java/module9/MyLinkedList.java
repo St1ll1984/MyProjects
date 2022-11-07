@@ -44,8 +44,8 @@ public class MyLinkedList <T> {
         }
     }
 
-     public void size() {
-        System.out.println("На текущий момент создано " + size + " элементов");
+     public int size() {
+        return size;
     }
 
      private void linkFirst(Node<T> firstLink) {
@@ -57,32 +57,31 @@ public class MyLinkedList <T> {
     }
 
     @SuppressWarnings({"ConstantConditions"})
-    public void get(int index) {
+    public <T> Object get(int index) {
         int buff = size;
         Node<T> item;
         do {
             if (index < 0) {
-                System.out.println("Вы указали отрицательный индекс, так быть не может!");
-                break;
+                return null;
             }
 
             if (buff / 2 >= index) {
-                item = linkFirst;
+                item = (Node<T>) linkFirst;
                 for (buff = 0; buff != index; buff++) {
                     item = item.getNext();
                 }
-                System.out.println(item.getItem().toString());
-                break;
+                return item;//System.out.println(item.getItem().toString());
+
             }
 
             if (buff / 2 < index && index <= size) {
-                item = linkLast;
+                item = (Node<T>) linkLast;
                 for (; buff - 1 != index; buff--) {
                     item = item.getPrev();
                 }
-                System.out.println(item.getItem().toString());
+                return item; //System.out.println(item.getItem().toString());
             } else {
-                System.out.println("Вы вышли за границы коллекции");
+                return null;//System.out.println("Вы вышли за границы коллекции");
             }
 
         } while (false);
@@ -148,6 +147,14 @@ public class MyLinkedList <T> {
     private static class Node<E> {
 
         private E item;
+
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "item=" + item +
+                    '}';
+        }
+
         private Node<E> next;
         private Node<E> prev;
 

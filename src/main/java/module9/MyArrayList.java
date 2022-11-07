@@ -25,6 +25,7 @@ public class MyArrayList<T> {
         for (int i = 0; i < array.length; i++) {
             array[i] = null;
         }
+        pointer = 0;
     }
 
     public int size() {

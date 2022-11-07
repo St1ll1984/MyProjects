@@ -12,17 +12,17 @@ public class MyLinkedListTest {
         myLinkedList.add("Six");
         myLinkedList.add("seven");
         myLinkedList.add("Eight");
-        myLinkedList.get(-2);
-        myLinkedList.size();
-        myLinkedList.get(20);
-        myLinkedList.get(7);
-        myLinkedList.clear();
-        myLinkedList.remove(9);
-        MyLinkedList<String> strLl = new MyLinkedList<>();
-        strLl.add("F000");
-        strLl.get(0);
-        strLl.size();
-        strLl.clear();
+        System.out.println(myLinkedList.get(2));
+        System.out.println(myLinkedList.size());
+        System.out.println(myLinkedList.get(20));
+//        myLinkedList.get(7);
+//        myLinkedList.clear();
+//        myLinkedList.remove(9);
+//        MyLinkedList<String> strLl = new MyLinkedList<>();
+//        strLl.add("F000");
+//        strLl.get(0);
+//        strLl.size();
+//        strLl.clear();
     }
 }
 

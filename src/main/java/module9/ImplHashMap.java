@@ -73,7 +73,13 @@ public class ImplHashMap<k,v> implements ImplHashMapInterface {
             table = newTable;
         }
         Node eNode = table[i];
-        table[i] = new Node(hashValue,key,value,eNode);
+
+        Node newNode = new Node(hashValue,key,value,null);
+        table[i] = newNode;
+        if (eNode != null) {
+            eNode.next = newNode;
+            table[i] = eNode;
+        }
     }
 
     public void transfer (Node [] src, Node [] newTable) {
